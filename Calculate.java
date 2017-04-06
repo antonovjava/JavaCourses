@@ -1,10 +1,15 @@
 public class Calculate{
 
-    public static void main(String[] arg) {
+    public static void main(String[] args) {
         System.out.println("Calculate...");
-        int first = Integer.valueOf(arg[0]);
-        int second = Integer.valueOf(arg[1]);
-        int sum = first + second;
-        System.out.println("Sum " + sum);
+        double first = Double.parseDouble(args[0]);
+        double second = Double.parseDouble(args[1]);
+
+        double result=0;
+        if (args[2].equals("+")) {result = first + second;}
+        if (args[2].equals("-")) {result = first - second;}
+        if (args[2].equals("*")) {result = first * second;}
+        if (args[2].equals("/")) {result = first / second;}
+        System.out.println("Result: " + result);
     }
 }
