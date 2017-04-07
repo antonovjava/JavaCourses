@@ -1,15 +1,22 @@
+import java.util.Scanner;
+
 public class Calculate{
 
     public static void main(String[] args) {
-        System.out.println("Calculate...");
-        double first = Double.parseDouble(args[0]);
-        double second = Double.parseDouble(args[1]);
+        Scanner reader = new Scanner(System.in);
 
-        double result=0;
-        if (args[2].equals("+")) {result = first + second;}
-        if (args[2].equals("-")) {result = first - second;}
-        if (args[2].equals("*")) {result = first * second;}
-        if (args[2].equals("/")) {result = first / second;}
-        System.out.println("Result: " + result);
+        Calculator calc = new Calculator();
+        String exit = "no";
+        while (!exit.equals("yes")){
+            System.out.println("Enter first arg: ");
+            String first = reader.next();
+            System.out.println("Enter second arg: ");
+            String second = reader.next();
+            calc.add(Double.parseDouble(first), Double.parseDouble(second));
+            System.out.println("Result: " + calc.getResult());
+            calc.cleanResult();
+            System.out.println("Exit: yes/no ");
+            exit = reader.next();
+        }
     }
 }
